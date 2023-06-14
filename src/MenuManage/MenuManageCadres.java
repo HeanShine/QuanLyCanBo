@@ -16,7 +16,8 @@ public class MenuManageCadres {
         while (true) {
             System.out.println("1. Add cadres");
             System.out.println("2. Show cadres");
-            System.out.println("3. Exit");
+            System.out.println("3. Search cadres");
+            System.out.println("4. Exit");
             System.out.println("Enter your choice: ");
 
             do {
@@ -27,7 +28,7 @@ public class MenuManageCadres {
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid input. Please Re-enter");
                 }
-            } while (choice != 1 && choice != 2 && choice != 3);
+            } while (choice != 1 && choice != 2 && choice != 3 && choice != 4);
 
             switch (choice) {
                 case 1:
@@ -36,6 +37,7 @@ public class MenuManageCadres {
                     System.out.println("3. Add worker");
                     System.out.println("Enter your choice: ");
                     int choice1 = 0;
+
                     do {
                         System.out.println("enter selection : ");
                         try {
@@ -45,6 +47,7 @@ public class MenuManageCadres {
                             System.out.println("Invalid input. Please Re-enter");
                         }
                     } while (choice1 != 1 && choice1 != 2 && choice1 != 3);
+
                     switch (choice1) {
                         case 1:
 
@@ -69,6 +72,21 @@ public class MenuManageCadres {
                     managerCadres.showCadres();
                     break;
                 case 3:
+                    int idSearch;
+
+                    do {
+                        System.out.print("Nhập id can bo muốn tim kiem : ");
+
+                        while (!scanner.hasNextInt()) {
+                            System.out.println("Đây không phải là số. Vui lòng nhập lại.");
+                            scanner.next();
+                        }
+
+                        idSearch = scanner.nextInt();
+                    } while (idSearch <= 0);
+                    managerCadres.searchCadres(idSearch);
+                    break;
+                case 4:
                     System.exit(0);
             }
         }

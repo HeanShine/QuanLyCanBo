@@ -37,4 +37,17 @@ public class ManagerCadres implements InterfaceCares {
             System.out.println(listCadres.get(i));
         }
     }
+
+    @Override
+    public void searchCadres(Integer id) {
+        if (isCadres(id)) {
+            for (int i = 0; i < listCadres.size(); i++) {
+                if (listCadres.get(i).getId() == id) {
+                    System.out.println(listCadres.get(i));
+                }
+            }
+        } else {
+            System.out.println("ID is not exist");
+        }
+    }
 }

@@ -8,5 +8,7 @@ public interface InterfaceCares {
     public void addCadres(Cadres cadres);
 
     void showCadres();
+
+    void searchCadres(Integer id);
 }
 
